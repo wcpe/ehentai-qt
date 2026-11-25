@@ -53,13 +53,6 @@ jobs:
         mv ${{ env.PACKAGENAME }}.dmg ..
         mv ehentai.zip ..
         cd ..
-    - name: Upload
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ env.PACKAGENAME }}
-        path: ehentai.zip
-        retention-days: 7
-        
   windows:
     runs-on: windows-latest
     env:
@@ -91,9 +84,3 @@ jobs:
         mkdir ${{ env.PACKAGENAME }}
         mv src\ehentai ${{ env.PACKAGENAME }}
         7z a -r "$($Env:PACKAGENAME + '.zip')" "ehentai"
-    - name: Upload
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ env.PACKAGENAME }}
-        path: ${{ env.PACKAGENAME }}
-        retention-days: 7
